@@ -15,7 +15,7 @@ class Solution {
             return -1;
         // Iterative brute force method:
 
-        // For every elt, find its max area potentail
+        // For every elt, find its max area potential
         for(int i =0; i< height.length; i++) {
 
             for(int j = i; j<height.length; j++) {
