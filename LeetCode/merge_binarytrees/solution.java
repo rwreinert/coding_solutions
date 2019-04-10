@@ -18,35 +18,37 @@
  *     TreeNode(int x) { val = x; }
  * }
  */
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
 class Solution {
     public TreeNode mergeTrees(TreeNode t1, TreeNode t2) {
 
-        int sum = 0;
         TreeNode newNode;
 
         if(t1 == null && t2 == null) {
             return null;
         } else {
             if(t1 != null && t2 == null) {
-                sum = t1.val;
-                newNode = new TreeNode(sum);
+                newNode = new TreeNode(t1.val);
                 newNode.left = mergeTrees(t1.left, null);
                 newNode.right = mergeTrees(t1.right, null);
             } else if(t1 == null && t2 != null) {
-                sum = t2.val;
-                newNode = new TreeNode(sum);
+                newNode = new TreeNode(t2.val);
                 newNode.left = mergeTrees(null, t2.left);
                 newNode.right = mergeTrees(null, t2.right);
             } else {
-                sum = t1.val + t2.val;
-                newNode = new TreeNode(sum);
+                newNode = new TreeNode(t1.val + t2.val);
                 newNode.left = mergeTrees(t1.left, t2.left);
                 newNode.right = mergeTrees(t1.right, t2.right);
             }
-
-
             return newNode;
         }
-
     }
-}
+}}
